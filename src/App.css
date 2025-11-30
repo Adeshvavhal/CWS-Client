@@ -1,0 +1,11 @@
+ .custom-outline-btn {
+                        color: #3A5FBE;
+                        border-color: #3A5FBE;
+                        background-color: transparent;
+                        transition: background-color 0.3s, color 0.3s;
+                      }
+                      .custom-outline-btn:hover {
+                        color: #fff !important;
+                        background-color: #3A5FBE !important;
+                        border-color: #3A5FBE !important;
+                      }

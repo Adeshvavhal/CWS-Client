@@ -1,0 +1,10 @@
+.calendar-container .react-calendar .react-calendar__navigation {
+  margin-bottom: 0px;
+  height: 30px;
+}
+.react-calendar__tile {
+  min-height: 2px !important; 
+}
+.react-calendar_month-viewdays_day {
+  min-height: 0 !important;
+}
