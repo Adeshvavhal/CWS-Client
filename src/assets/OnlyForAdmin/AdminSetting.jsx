@@ -39,7 +39,7 @@ function AdminSetting() {
       setRemovingImage(true);
 
       const res = await axios.delete(
-        `http://localhost:8000/employees/${adminId}/image`   
+        `https://cws-server.vercel.app/employees/${adminId}/image`   
       );
 
       if (res?.data?.employee) {
@@ -65,7 +65,7 @@ function AdminSetting() {
 
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/employees/${adminId}`);  // 👈
+        const res = await axios.get(`https://cws-server.vercel.app/employees/${adminId}`);  // 👈
         setProfile(res.data);
         setFormData({
           ...res.data,
@@ -166,7 +166,7 @@ function AdminSetting() {
         }
       });
 
-      await axios.put(`http://localhost:8000/employees/${adminId}`, data, {
+      await axios.put(`https://cws-server.vercel.app/employees/${adminId}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -174,7 +174,7 @@ function AdminSetting() {
       setIsEditing(false);
 
       // Refresh profile
-      const updated = await axios.get(`http://localhost:8000/employees/${adminId}`);
+      const updated = await axios.get(`https://cws-server.vercel.app/employees/${adminId}`);
       setProfile(updated.data);
       setFormData({
         ...updated.data,
@@ -192,7 +192,7 @@ function AdminSetting() {
     if (!file) return "Not uploaded";
     if (file instanceof File) return file.name;
     return (
-      <a href={`http://localhost:8000/uploads/${file}`} target="_blank" rel="noreferrer">
+      <a href={`https://cws-server.vercel.app/uploads/${file}`} target="_blank" rel="noreferrer">
         View PDF
       </a>
     );
@@ -402,7 +402,7 @@ function AdminSetting() {
       const accessToken = localStorage.getItem("accessToken");
 
       const res = await axios.post(
-        "http://localhost:8000/change-password",
+        "https://cws-server.vercel.app/change-password",
         {
           currentPassword,
           newPassword,
@@ -493,7 +493,7 @@ function AdminSetting() {
                     <img
                       src={profile.image?.startsWith("http")
                         ? profile.image
-                        : `http://localhost:8000/image/${profile.image}`}
+                        : `https://cws-server.vercel.app/image/${profile.image}`}
                       alt="Profile"
                       style={{
                         width: "100px",
